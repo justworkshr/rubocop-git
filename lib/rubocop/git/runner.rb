@@ -9,8 +9,11 @@ module RuboCop
 
         @options = options
         @files = DiffParser.parse(git_diff(options))
+        rubo_comment = RuboComment.new(@files)
 
         display_violations($stdout)
+        # removes comments after rubocop processing
+        rubo_comment.remove_comments
 
         exit(1) if violations.any?
       end
