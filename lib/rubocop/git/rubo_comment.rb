@@ -66,7 +66,7 @@ module RuboCop::Git
         begin
           File.open(file.filename, "r").each_line do |line|
             line_count += 1
-            temp_file.puts line unless @edit_map[file.filename].find_index line_count
+            temp_file.puts line unless @edit_map[file.filename]&.find_index line_count
           end
 
           temp_file.close
