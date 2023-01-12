@@ -29,7 +29,7 @@ class CommitFile
   end
 
   def ruby?
-    filename.match(/.*\.rb$/)
+    filename.match(/\.(rb|rake)$/)
   end
 
   def modified_lines
